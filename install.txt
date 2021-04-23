@@ -1,0 +1,102 @@
+
+===============================
+Ideas
+===============================
+		- Ask user to add 'Send to tusab' to context menu
+		- Launch application on completion (instructing user to login to the same account used with B&S)
+		- Install B&S and guide user through installation
+
+===============================
+B2B
+===============================
+		- B2B is designed to be a stand alone executable, and so needs no installation.
+		- Must copy B2B to installation directory and add to PATH
+
+===============================
+Magick and 7zip
+===============================
+		- Both applications must be installed correctly on target machine. 
+			1. First check in registry for entries
+			2. If enteries are present, check directories
+			3. If files are there, perform mock compression/image conversion to confirm 
+		  If any of steps 1-3 fail, install applciation
+		- Add 7zip to PATH
+
+===============================
+Backup and sync
+===============================
+		- Backup and sync MUST be installed from scratch since some B&S settings are mandatory for tusab to work correctly (for example photos must be uploaded in high quality)
+		- If B&S is already installed, we warn the user that their current settings will be replaced, and that they will essentially no longer be able to use B&S
+
+===============================
+TUSAB-cmd and B2B
+===============================
+		- Copy in B2B and tusab-cmd and add to PATH
+
+===============================
+Target directory structure
+===============================
+
+		- %UserProfile%\AppData\Local\Google\Drive\user_default\user_setup.config
+		- %ProgramFiles%\Tusab\tusab-cmd
+		- %ProgramFiles%\Tusab\tusab-gui
+		- %ProgramFiles%\Tusab\bns
+		- %ProgramFiles%\Tusab\tmp
+		- %ProgramFiles%\Tusab\B2B\B2B.exe
+		
+===============================
+default_config.json
+===============================
+
+{
+    "temporary-file-path": %ProgramFiles%\\Tusab\\tmp,
+    "backup-and-sync-path": %ProgramFiles%\\Tusab\\bns,
+    "timeout": -1,
+    "metadata-file-id": null,
+    "metadata-folder-id": null,
+    "mutex-file-id": null,
+    "user-credentials": null,
+    "app-credentials": {
+        "installed": {
+            "client_id": "861736327332-0nv70br43gh7e338vslt25mrst2si2gt.apps.googleusercontent.com",
+            "project_id": "quickstart-1586720782662",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_secret": "1mwZbaVm2SHUbktSLDMtCPkP",
+            "redirect_uris": [
+                "urn:ietf:wg:oauth:2.0:oob",
+                "http://localhost"
+            ]
+        }
+    }
+}
+
+===============================
+user_setup.config
+===============================
+
+[Computers]
+# Do not sync any other locations
+desktop_enabled: False
+documents_enabled: False
+pictures_enabled: False
+# Setup b&s sync folder
+folders: %ProgramFiles%\Tusab\bns
+# Upload in high quality ONLY
+high_quality_enabled: True
+always_show_in_photos: False
+usb_sync_enabled: False
+# ignore_extensions: ext1, ext2, ext3
+# B&S should NOT delete files in sync folder
+delete_mode: NEVER_SYNC_DELETES
+[MyDrive]
+#folder: /path/to/google_drive
+my_drive_enabled: False
+[Settings]
+autolaunch: True
+show_overlays: False
+#[Network]
+#download_bandwidth: 100
+#upload_bandwidth: 200
+#use_direct_connection: False

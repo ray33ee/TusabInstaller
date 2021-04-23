@@ -1,0 +1,23 @@
+{
+    "temporary-file-path": "",
+    "backup-and-sync-path": "",
+    "timeout": -1,
+    "metadata-file-id": null,
+    "metadata-folder-id": null,
+    "mutex-file-id": null,
+    "user-credentials": null,
+    "app-credentials": {
+        "installed": {
+            "client_id": "861736327332-0nv70br43gh7e338vslt25mrst2si2gt.apps.googleusercontent.com",
+            "project_id": "quickstart-1586720782662",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_secret": "1mwZbaVm2SHUbktSLDMtCPkP",
+            "redirect_uris": [
+                "urn:ietf:wg:oauth:2.0:oob",
+                "http://localhost"
+            ]
+        }
+    }
+}
